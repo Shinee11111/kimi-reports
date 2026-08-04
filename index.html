@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimi Report Hub · 个人投研知识库</title>
+<style>
+:root { --bg: #f8f9fa; --surface: #ffffff; --surface-hover: #f1f5f9; --border: #e2e8f0; --text: #1e293b; --text-muted: #64748b; --accent: #1e3a5f; --accent-glow: rgba(30,58,95,0.06); --up: #dc2626; --down: #16a34a; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-bottom: 1px solid var(--border); }
+.navbar-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-size: 1.25rem; font-weight: 700; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.hero { padding: 4rem 0 3rem; text-align: center; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--text); }
+.hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 1.5rem; }
+.hero-stats { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+.hero-stat { text-align: center; }
+.hero-stat-value { font-size: 1.75rem; font-weight: 700; color: var(--accent); }
+.hero-stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+.controls { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; background: var(--surface); padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--border); }
+.controls input, .controls select { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 0.75rem 1rem; border-radius: 0.5rem; font-size: 0.95rem; }
+.controls input { flex: 1; min-width: 200px; }
+.controls input::placeholder { color: #4b5563; }
+.report-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+.report-card { background: var(--surface); border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; text-decoration: none; color: inherit; display: block; transition: transform 0.2s, box-shadow 0.2s; }
+.report-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); border-color: rgba(30,58,95,0.2); }
+.report-date { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem; }
+.report-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.4; }
+.report-summary { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.report-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.tag { background: rgba(59,130,246,0.1); color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.75rem; }
+.report-metrics { display: flex; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.metric { flex: 1; }
+.metric-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+.metric-value { font-size: 0.95rem; font-weight: 600; }
+.metric-value.up { color: var(--up); }
+.metric-value.down { color: var(--down); }
+.main-layout { display: grid; grid-template-columns: 1fr 280px; gap: 2rem; }
+.sidebar { position: sticky; top: 80px; height: fit-content; }
+.sidebar-box { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1rem; }
+.sidebar-title { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+.sidebar-item { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.sidebar-item:last-child { border-bottom: none; }
+.sidebar-item a { color: var(--text); text-decoration: none; }
+.sidebar-item a:hover { color: var(--accent); }
+.sidebar-count { color: var(--text-muted); font-size: 0.8rem; }
+.footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 3rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+@media (max-width: 768px) { .main-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .hero h1 { font-size: 1.75rem; } .report-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="container navbar-inner"><a href="index.html" class="logo">📊 <span>Kimi</span> Report Hub</a><div class="nav-links"><a href="index.html">首页</a><a href="archive.html">归档</a></div></div></nav>
+<header class="hero"><div class="container"><h1>个人投研知识库</h1><p>基于 Kimi Work 定时任务自动生成的每日收盘复盘报告归档站。支持全文搜索、标签筛选与历史回溯。</p><div class="hero-stats"><div class="hero-stat"><div class="hero-stat-value">1</div><div class="hero-stat-label">报告总数</div></div><div class="hero-stat"><div class="hero-stat-value">6</div><div class="hero-stat-label">标签数量</div></div><div class="hero-stat"><div class="hero-stat-value">2026-7-31</div><div class="hero-stat-label">最新报告</div></div></div></div></header>
+<div class="container main-layout">
+<main>
+<div class="controls">
+<input type="text" id="search" placeholder="🔍 搜索标题、摘要、标签..." oninput="filter()">
+<select id="category" onchange="filter()"><option value="">全部分类</option><option value="半导体复盘">半导体复盘 (1)</option></select>
+<select id="sort" onchange="filter()"><option value="date-desc">最新优先</option><option value="date-asc">最早优先</option></select>
+</div>
+<div class="report-grid" id="report-grid">
+        <a href="reports/2026-07-31-半导体核心板块收盘复盘报告.html" class="report-card">
+          <div class="report-date">📅 2026-7-31</div>
+          <div class="report-title">半导体核心板块收盘复盘报告</div>
+          <div class="report-summary">**
+今日市场呈现典型的"科技暴力反弹+普涨格局"。早盘创业板一度冲高至+6.79%，科创50最高涨近9%，但午后出现明显回落，双创指数收盘涨幅约为早盘高点的一半，显示上方套牢盘抛压仍在。上证指数受银行板块拖累（宁波银行、农业银行跌逾2%），涨幅明显弱于深市。整体而言，这是一次在外盘强劲带动下、由前期深度超跌引发的报复性反弹，但量能并未突破前期天量，且尾盘回落迹象明显，定性为**技术性反弹而非趋势</div>
+          <div class="report-tags"><span class="tag">电子特气</span><span class="tag">存储</span><span class="tag">MLCC</span></div>
+          <div class="report-metrics">
+            <div class="metric"><div class="metric-label">大盘</div><div class="metric-value up">+0.72%</div></div>
+            <div class="metric"><div class="metric-label">成交额</div><div class="metric-value">25,419亿</div></div>
+            <div class="metric"><div class="metric-label">涨停</div><div class="metric-value up"></div></div>
+          </div>
+        </a>
+        </div>
+</main>
+<aside class="sidebar">
+<div class="sidebar-box"><div class="sidebar-title">📂 分类</div><div class="sidebar-item"><a href="#">半导体复盘</a><span class="sidebar-count">1</span></div></div>
+<div class="sidebar-box"><div class="sidebar-title">🏷️ 热门标签</div><div class="sidebar-item"><a href="#">电子特气</a><span class="sidebar-count">1</span></div><div class="sidebar-item"><a href="#">存储</a><span class="sidebar-count">1</span></div><div class="sidebar-item"><a href="#">MLCC</a><span class="sidebar-count">1</span></div><div class="sidebar-item"><a href="#">功率器件</a><span class="sidebar-count">1</span></div><div class="sidebar-item"><a href="#">外盘</a><span class="sidebar-count">1</span></div><div class="sidebar-item"><a href="#">AI</a><span class="sidebar-count">1</span></div></div>
+<div class="sidebar-box"><div class="sidebar-title">📅 归档</div><div class="sidebar-item"><a href="#">2026-7-</a><span class="sidebar-count">1</span></div></div>
+</aside>
+</div>
+<footer class="footer"><div class="container"><p>自动生成于 Kimi Work · 部署于 GitHub Pages · 仅供个人投研参考</p></div></footer>
+<script>
+let allReports = [{"filename": "2026-07-31-半导体核心板块收盘复盘报告.md", "title": "半导体核心板块收盘复盘报告", "date": "2026-7-31", "category": "半导体复盘", "tags": ["电子特气", "存储", "MLCC", "功率器件", "外盘", "AI"], "summary": "**\n今日市场呈现典型的\"科技暴力反弹+普涨格局\"。早盘创业板一度冲高至+6.79%，科创50最高涨近9%，但午后出现明显回落，双创指数收盘涨幅约为早盘高点的一半，显示上方套牢盘抛压仍在。上证指数受银行板块拖累（宁波银行、农业银行跌逾2%），涨幅明显弱于深市。整体而言，这是一次在外盘强劲带动下、由前期深度超跌引发的报复性反弹，但量能并未突破前期天量，且尾盘回落迹象明显，定性为**技术性反弹而非趋势", "volume": "25,419亿", "limit_up": "", "market_change": "+0.72%", "filepath": "C:\\Users\\jinting.yuan\\KimiReports\\reports\\2026-07-31-半导体核心板块收盘复盘报告.md"}];
+function filter() {
+  const search = document.getElementById('search').value.toLowerCase();
+  const category = document.getElementById('category').value;
+  const sort = document.getElementById('sort').value;
+  let filtered = allReports.filter(r => {
+    const matchSearch = !search || r.title.toLowerCase().includes(search) || r.summary.toLowerCase().includes(search) || r.tags.some(t => t.toLowerCase().includes(search));
+    const matchCat = !category || r.category === category;
+    return matchSearch && matchCat;
+  });
+  if (sort === 'date-desc') filtered.sort((a,b) => b.date.localeCompare(a.date));
+  else filtered.sort((a,b) => a.date.localeCompare(b.date));
+  const grid = document.getElementById('report-grid');
+  if (filtered.length === 0) { grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--text-muted);">没有找到匹配的报告</div>'; return; }
+  grid.innerHTML = filtered.map(r => `<a href="reports/${r.filename.replace('.md','.html')}" class="report-card"><div class="report-date">📅 ${r.date}</div><div class="report-title">${r.title}</div><div class="report-summary">${r.summary}</div><div class="report-tags">${r.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div><div class="report-metrics"><div class="metric"><div class="metric-label">大盘</div><div class="metric-value ${r.market_change && r.market_change.startsWith('+') ? 'up' : 'down'}">${r.market_change || 'N/A'}</div></div><div class="metric"><div class="metric-label">成交额</div><div class="metric-value">${r.volume || 'N/A'}</div></div><div class="metric"><div class="metric-label">涨停</div><div class="metric-value up">${r.limit_up || 'N/A'}</div></div></div></a>`).join('');
+}
+filter();
+</script>
+</body>
+</html>
