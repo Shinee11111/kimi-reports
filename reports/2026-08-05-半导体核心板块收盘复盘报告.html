@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>半导体核心板块收盘复盘报告 | 2026-8-5 周三 | Kimi Report Hub</title>
+<style>
+:root { --bg: #f8f9fa; --surface: #ffffff; --surface-hover: #f1f5f9; --border: #e2e8f0; --text: #1e293b; --text-muted: #64748b; --accent: #1e3a5f; --accent-glow: rgba(30,58,95,0.06); --up: #dc2626; --down: #16a34a; --warn: #d97706; --danger: #b91c1c; --success: #16a34a; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-bottom: 1px solid var(--border); }
+.navbar-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-size: 1.25rem; font-weight: 700; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.hero { padding: 3rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent-glow); color: var(--accent); padding: 0.35rem 0.9rem; border-radius: 999px; font-size: 0.8rem; border: 1px solid rgba(59,130,246,0.2); margin-bottom: 1rem; }
+.hero h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.2; color: var(--text); margin-bottom: 0.75rem; }
+.hero-meta { display: flex; gap: 1.5rem; color: var(--text-muted); font-size: 0.9rem; flex-wrap: wrap; }
+.hero-meta span { display: flex; align-items: center; gap: 0.35rem; }
+.quick-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 1rem; padding: 1.25rem; transition: transform 0.2s, box-shadow 0.2s; }
+.stat-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); border-color: var(--accent); }
+.stat-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+.stat-value { font-size: 1.5rem; font-weight: 700; }
+.stat-value.up { color: var(--up); }
+.stat-value.down { color: var(--down); }
+.stat-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+.section { margin-bottom: 3rem; }
+.section-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+.section-header h2 { font-size: 1.35rem; font-weight: 700; }
+.section-icon { font-size: 1.25rem; }
+.anchor-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; padding: 1rem; background: var(--surface); border-radius: 0.75rem; border: 1px solid var(--border); position: sticky; top: 64px; z-index: 90; }
+.anchor-nav a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; padding: 0.4rem 0.8rem; border-radius: 0.5rem; transition: all 0.2s; white-space: nowrap; }
+.anchor-nav a:hover { background: var(--surface-hover); color: var(--text); }
+.anchor-nav a.active { background: var(--accent-glow); color: var(--accent); }
+.table-wrap { overflow-x: auto; border-radius: 0.75rem; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--surface); color: var(--text-muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+tr:hover td { background: var(--surface-hover); }
+td { color: var(--text); }
+.change-up { color: var(--up); font-weight: 600; }
+.change-down { color: var(--down); font-weight: 600; }
+.tab-bar { display: flex; gap: 0.25rem; overflow-x: auto; margin-bottom: 1rem; padding-bottom: 0.5rem; }
+.tab-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 0.6rem 1rem; border-radius: 0.5rem; cursor: pointer; white-space: nowrap; font-size: 0.85rem; font-weight: 500; transition: all 0.2s; }
+.tab-btn:hover { background: var(--surface-hover); color: var(--text); }
+.tab-btn.active { background: var(--accent-glow); color: var(--accent); border-color: rgba(30,58,95,0.2); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity:0; transform: translateY(8px);} to { opacity:1; transform: translateY(0);} }
+.sector-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding: 1rem; background: var(--surface); border-radius: 0.75rem; border: 1px solid var(--border); }
+.sector-title { font-weight: 700; font-size: 1.1rem; }
+.sector-badges { display: flex; gap: 0.5rem; }
+.badge { padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+.badge-up { background: rgba(239,68,68,0.15); color: var(--up); }
+.badge-down { background: rgba(34,197,94,0.15); color: var(--down); }
+.badge-neutral { background: rgba(156,163,175,0.15); color: var(--text-muted); }
+.badge-strong { background: rgba(16,185,129,0.15); color: var(--success); }
+.badge-weak { background: rgba(245,158,11,0.15); color: var(--warn); }
+.holding-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.holding-card { background: var(--surface); border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; position: relative; overflow: hidden; }
+.holding-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #8b5cf6); }
+.holding-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.holding-name { font-size: 1.1rem; font-weight: 700; }
+.holding-code { font-size: 0.75rem; color: var(--text-muted); }
+.holding-score { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+.holding-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+.holding-row:last-child { border-bottom: none; }
+.holding-label { color: var(--text-muted); }
+.holding-val { font-weight: 600; }
+.news-timeline { position: relative; padding-left: 1.5rem; }
+.news-timeline::before { content: ''; position: absolute; left: 0.4rem; top: 0.5rem; bottom: 0.5rem; width: 2px; background: var(--border); }
+.news-item { position: relative; margin-bottom: 1.5rem; padding-left: 1.5rem; }
+.news-item::before { content: ''; position: absolute; left: -1.15rem; top: 0.4rem; width: 10px; height: 10px; border-radius: 50%; background: var(--border); border: 2px solid var(--bg); }
+.news-item.major::before { background: var(--danger); box-shadow: 0 0 0 4px rgba(220,38,38,0.2); }
+.news-item.normal::before { background: var(--warn); box-shadow: 0 0 0 4px rgba(245,158,11,0.2); }
+.news-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; }
+.news-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+.news-badge { font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 700; }
+.news-badge.major { background: rgba(220,38,38,0.15); color: var(--danger); }
+.news-badge.normal { background: rgba(245,158,11,0.15); color: var(--warn); }
+.news-quote { background: rgba(30,58,95,0.03); border-left: 3px solid var(--border); padding: 0.75rem 1rem; margin: 0.75rem 0; border-radius: 0 0.5rem 0.5rem 0; font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
+.news-interpretation { font-size: 0.9rem; line-height: 1.7; }
+.findings-grid { display: grid; gap: 1rem; }
+.finding-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; border-left: 4px solid var(--accent); transition: transform 0.2s; }
+.finding-card:hover { transform: translateX(4px); }
+.finding-num { display: inline-block; width: 28px; height: 28px; line-height: 28px; text-align: center; border-radius: 50%; background: var(--accent-glow); color: var(--accent); font-size: 0.8rem; font-weight: 700; margin-right: 0.75rem; }
+.finding-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; }
+.finding-text { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
+.risk-box { background: rgba(220,38,38,0.05); border: 1px solid rgba(220,38,38,0.2); border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1rem; display: flex; gap: 1rem; align-items: flex-start; }
+.risk-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+.risk-content h4 { color: var(--danger); margin-bottom: 0.35rem; font-size: 1rem; }
+.risk-content p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+.strategy-table th:first-child, .strategy-table td:first-child { width: 25%; }
+.strategy-table td:nth-child(2) { text-align: center; }
+.rating-pill { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
+.rating-watch { background: rgba(59,130,246,0.15); color: var(--accent); }
+.rating-hold { background: rgba(156,163,175,0.15); color: var(--text-muted); }
+.rating-avoid { background: rgba(220,38,38,0.15); color: var(--danger); }
+.footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 3rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+@media (max-width: 768px) { .hero h1 { font-size: 1.5rem; } .anchor-nav { top: 56px; padding: 0.75rem; } .tab-bar { gap: 0.5rem; } .tab-btn { padding: 0.5rem 0.75rem; font-size: 0.8rem; } .sector-header { flex-direction: column; gap: 0.75rem; align-items: flex-start; } .holding-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="container navbar-inner"><a href="../index.html" class="logo">📊 <span>Kimi</span> Report Hub</a><div class="nav-links"><a href="../index.html">首页</a><a href="../archive.html">归档</a></div></div></nav>
+<header class="hero"><div class="container"><div class="hero-badge">📅 半导体复盘 · 2026-8-5 周三</div><h1>半导体核心板块收盘复盘报告</h1><div class="hero-meta"><span>📆 2026-8-5 周三</span><span>🏷️ 存储, 半导体, 功率器件</span></div><div class="hero-url" style="margin-top:0.5rem;font-size:0.85rem;"><a href="https://shinee11111.github.io/kimi-reports/" target="_blank" style="color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:0.35rem;"><span style="font-size:1rem;">🔗</span>在线版本</a></div></div></header>
+<div class="container">
+<div class="quick-stats">
+<div class="stat-card"><div class="stat-label">两市合计成交额</div><div class="stat-value">26596亿</div></div>
+<div class="stat-card"><div class="stat-label">涨停家数</div><div class="stat-value up">102</div></div>
+<div class="stat-card"><div class="stat-label">上证指数</div><div class="stat-value change-up">+1.47%</div></div>
+</div>
+<div class="anchor-nav" id="anchorNav">
+<a href="#market" class="active">大盘概览</a><a href="#overseas">外盘动态</a><a href="#sectors">板块分析</a><a href="#holdings">持仓信号</a><a href="#news">新闻舆情</a><a href="#findings">关键发现</a><a href="#risks">风险提醒</a><a href="#strategy">策略建议</a>
+</div>
+<section class="section" id="market"><div class="section-header"><span class="section-icon">📈</span><h2>大盘走势概览</h2></div><div class="table-wrap"><table><thead><tr><th>指数</th><th>收盘点位</th><th>涨跌幅</th><th>成交额</th></tr></thead><tbody><tr><td>上证指数</td><td>3878.43</td><td class="change-up">+1.47%</td><td>12087亿</td></tr><tr><td>深证成指</td><td>14144.20</td><td class="change-up">+1.86%</td><td>14509亿</td></tr><tr><td>创业板指</td><td>3535.14</td><td class="change-up">+1.32%</td><td>7205亿</td></tr><tr><td>沪深300</td><td>4658.15</td><td class="change-up">+1.24%</td><td>8792亿</td></tr></tbody></table></div><p style="margin-top:1rem;color:var(--text-muted);font-size:0.9rem;"><strong style="color:var(--text)">大盘判断：</strong>** 今日A股放量普涨，科创50以+4.78%大幅领跑，显著强于上证（+1.47%）和沪深300（+1.24%），说明资金明显向科技成长方向集中。两市成交额逼近2.7万亿，较近期常态明显放量，增量资金入场信号明确。跌停仅1家，市场情绪处于高位活跃区间，风险偏好显著回升。</p></section>
+<section class="section" id="overseas"><div class="section-header"><span class="section-icon">🌍</span><h2>外盘动态</h2></div><p style="color:var(--text-muted)">暂无外盘数据</p></section>
+<section class="section" id="sectors"><div class="section-header"><span class="section-icon">🎯</span><h2>半导体核心板块详细分析</h2></div><p style="color:var(--text-muted)">暂无板块数据</p></section>
+<section class="section" id="holdings"><div class="section-header"><span class="section-icon">💼</span><h2>持仓信号解读</h2></div><p style="color:var(--text-muted)">暂无持仓数据</p></section>
+<section class="section" id="news"><div class="section-header"><span class="section-icon">📰</span><h2>新闻舆情与关键事件</h2></div><p style="color:var(--text-muted)">暂无新闻数据</p></section>
+<section class="section" id="findings"><div class="section-header"><span class="section-icon">💡</span><h2>关键发现</h2></div><div class="findings-grid">
+        <div class="finding-card">
+          <div class="finding-title"><span class="finding-num">1</span>科创50大幅领涨确认科技主线回归。</div>
+          <div class="finding-text"> 科创50 +4.78%远强于上证+1.47%，半导体净流入+90.1亿居全市场首位，增量资金明确涌入硬科技。科技成长风格在经历前期调整后，今日迎来强力反弹。</div>
+        </div>
+        
+        <div class="finding-card">
+          <div class="finding-title"><span class="finding-num">2</span>光模块龙头与CPO指数严重背离，FCC禁令传闻是核心变量。</div>
+          <div class="finding-text"> CPO指数+4.46%但龙头池均值-1.84%，中际旭创-7.27%、新易盛-5.29%与板块指数背离近10个百分点。这说明CPO指数中大量小市值概念股在补涨，而真龙头因禁令传闻被资金抛售。真假龙头在此刻被市场用脚投票区分。</div>
+        </div>
+        
+        <div class="finding-card">
+          <div class="finding-title"><span class="finding-num">3</span>电子特气和存储是半导体内部最强赛道。</div>
+          <div class="finding-text"> 电子特气龙头池均值+8.56%、存储龙头池均值+8.47%，两者均大幅跑赢同花顺指数，且龙头成交额巨大（兆易创新261.8亿、中船特气68.7亿），说明大资金主攻方向明确。国产替代（电子特气）和景气周期（存储）双逻辑共振。</div>
+        </div>
+        
+        <div class="finding-card">
+          <div class="finding-title"><span class="finding-num">4</span>资源股与科技股形成双主线，而非跷跷板。</div>
+          <div class="finding-text"> 贵金属+7.72%和半导体+5.63%同日大涨，银行-1.15%和电力净流出，说明增量资金同时进攻科技和周期两条主线。这与过去"科技强则周期弱"的跷跷板格局不同，市场处于增量资金推动的全面活跃期。</div>
+        </div>
+        
+        <div class="finding-card">
+          <div class="finding-title"><span class="finding-num">5</span>功率器件龙头跑输指数，赛道景气度存疑。</div>
+          <div class="finding-text"> 功率器件是唯一一个龙头池均值（+3.77%）跑输同花顺指数（+4.77%）的赛道，且龙头成交普遍偏小（士兰微仅34.6亿），说明资金对功率器件的关注度在半导体内部相对靠后。新能源汽车增速放缓可能是压制因素。</div>
+        </div>
+        </div></section>
+<section class="section" id="risks"><div class="section-header"><span class="section-icon">⚠️</span><h2>风险提醒</h2></div>
+        <div class="risk-box">
+          <div class="risk-icon">🎢</div>
+          <div class="risk-content">
+            <h4>⚠️ FCC光模块禁令传闻的不确定性。</h4>
+            <p> 若禁令坐实并快速实施，中际旭创、新易盛等光模块龙头的海外收入（占比超80%）将受到实质性冲击。虽然当前仅为传闻阶段，但后续任何官方表态都可能引发股价剧烈波动。持仓中含光模块标的者需密切跟踪政策进展。</p>
+          </div>
+        </div>
+        
+        <div class="risk-box">
+          <div class="risk-icon">🍎</div>
+          <div class="risk-content">
+            <h4>⚠️ 反弹持续性待验证，警惕"一日游"行情。</h4>
+            <p> 今日的大涨是在前期持续下跌后的超跌反弹，4只持仓的RSI均处于中性或偏弱区间，尚未进入过热区。但如果后续成交量萎缩、指数无法突破MA20/MA60等关键均线，反弹可能夭折并引发二次探底。</p>
+          </div>
+        </div>
+        
+        <div class="risk-box">
+          <div class="risk-icon">🚧</div>
+          <div class="risk-content">
+            <h4>⚠️ 全球AI投资ROI担忧升温。</h4>
+            <p> SpaceX因AI资本支出成本侵蚀利润而股价下跌，叠加Anthropic/OpenAI安全测试事件，市场对AI投资的回报率开始出现质疑。若后续更多科技巨头财报中出现"增收不增利"的情况，可能引发对AI算力需求的重新评估，从而波及半导体整体估值。</p>
+          </div>
+        </div>
+        </section>
+<section class="section" id="strategy"><div class="section-header"><span class="section-icon">🎯</span><h2>策略建议</h2></div><p style="color:var(--text-muted)">暂无策略建议</p></section>
+</div>
+<footer class="footer"><div class="container"><p>本报告基于公开数据整理分析，仅供复盘参考，不构成投资建议。</p><p style="margin-top:0.5rem;opacity:0.6;">报告编制：AI助手 · 网站生成：Kimi Report Hub</p></div></footer>
+<script>
+function switchTab(index) { document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === index)); document.querySelectorAll('.tab-panel').forEach((panel, i) => panel.classList.toggle('active', i === index)); }
+const sections = document.querySelectorAll('.section'); const navLinks = document.querySelectorAll('.anchor-nav a');
+window.addEventListener('scroll', () => { let current = ''; sections.forEach(section => { if (scrollY >= section.offsetTop - 120) current = section.getAttribute('id'); }); navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + current)); });
+</script>
+</body>
+</html>
